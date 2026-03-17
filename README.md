@@ -1,95 +1,103 @@
-# 🔥Build a Stunning Fashion Studio Website with React JS [ Locomotive Scroll + GSAP + Framer Motion ]
+# 🚀 Cloud Full-Stack Deployment – Wibe Studio Portfolio
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/wibe-studio-starter-files?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/wibe-studio-starter-files?style=social&logo=KashFlow&&label=Forks)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+## 📌 Project Overview
 
-This repository contains final code for Fashion Studio Website in ReactJS. <br />
+Project ini merupakan implementasi deployment aplikasi full-stack berbasis **NextJS** ke lingkungan cloud menggunakan **VPS Ubuntu**.
 
-View Demo👇: <br />
-https://wibe-studio.netlify.app/ <br />
+Fokus utama project ini adalah penerapan praktik **DevOps dan Cloud Engineering**, meliputi CI/CD automation, deployment server, monitoring performa, serta konfigurasi keamanan dasar.
 
-checkout following **Tutorial** to learn👇: <br />
-<a href="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap" target="_blank">🔥Build a Stunning Fashion Studio Website with React JS</a> ![YouTube Video Views](https://img.shields.io/youtube/views/Ra1Fsa9YJCk?style=social) </br >
+Aplikasi yang digunakan merupakan UI portfolio template open-source yang telah dimodifikasi dan dideploy sebagai bagian dari capstone project.
 
-[![YouTube Video Views](https://img.shields.io/youtube/views/Ra1Fsa9YJCk?style=social)](https://youtu.be/Ra1Fsa9YJCk)<br />
+---
 
+## 🏗 System Architecture
 
-### Images of The Fashion Studio Website:
-![HOME](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-Home-Desktop.png)
-![ABOUT](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-About-Desktop.png)
-![HOME](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-Home-Moblie.png)
-![ABOUT](https://github.com/codebucks27/wibe-studio-starter-files/blob/main/Wibe-About-Mobile.png)
+User → Internet → Nginx Reverse Proxy → NextJS Application (PM2) → VPS Server
 
+---
 
-### Resources Used in This Project
+## ⚙️ CI/CD Pipeline
 
-Fonts: https://fontsource.org/ <br />
+Pipeline otomatis dibuat menggunakan **GitHub Actions** dengan tahapan:
 
-### External Libraries used in this project: 
+1. Checkout source code
+2. Install dependency
+3. Build aplikasi NextJS
+4. Deploy otomatis ke VPS melalui SSH
+5. Restart aplikasi menggunakan PM2
 
-[styled-components](https://styled-components.com/docs/advanced) <br />
-[GSAP](https://greensock.com/gsap/) <br />
-[Framer-mMtion](https://www.framer.com/motion/) <br />
-[React-Locomotive-Scroll](https://www.npmjs.com/package/react-locomotive-scroll) <br />
-[Locomotive-Scroll](https://www.npmjs.com/package/locomotive-scroll) <br />
+Pipeline akan berjalan setiap kali terjadi push ke branch **main**.
 
-### All The Resources Used in This Website Are from👇:
+---
 
-Walking Girl Video:<br />
-Video by cottonbro from Pexels [https://www.pexels.com/@cottonbro]<br />
+## ☁️ Cloud Deployment
 
-Images:<br />
+Aplikasi dideploy ke **Virtual Private Server (Ubuntu)** dengan spesifikasi:
 
-Ring: Photo by Arif Syuhada from Pexels<br />
-https://www.pexels.com/@arifsyd15<br />
+- Hostname: **finalprojectkomar.com**
+- IP Address: **141.11.175.86**
+- 1 vCPU
+- 1 GB RAM
+- 25 GB Storage
 
-Rings: Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
+Aplikasi dapat diakses melalui:
 
-Earings: Photo by say straight from Pexels<br />
-https://www.pexels.com/@say-straight-1400349<br />
+👉 http://141.11.175.86
 
-White Tee:Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
+Deployment menggunakan:
 
-black t-shirt girl: Photo by Lena Hsvl from Pexels<br />
-https://www.pexels.com/@lenaneva<br />
+- NodeJS runtime
+- PM2 process manager
+- Nginx reverse proxy
 
-Red girl: Photo by Yaroslava Borz from Pexels<br />
-https://www.pexels.com/@yaroslava-borz-126286496<br />
+---
 
-Ethnic Wear: Photo by Artem Beliaikin from Pexels<br />
-https://www.pexels.com/@belart84<br />
+## 📈 Monitoring
 
-Suit: Photo by Chloe from Pexels<br />
-https://www.pexels.com/@chloekalaartist<br />
+Monitoring server dilakukan menggunakan **Netdata dashboard** untuk memantau:
 
-cap male: Photo by cottonbro from Pexels<br />
-https://www.pexels.com/@cottonbro<br />
+- CPU Usage
+- Memory Usage
+- Network Traffic
+- Disk I/O
 
-Watches: Photo by Mister Mister from Pexels<br />
-https://www.pexels.com/@bemistermister<br />
+Monitoring membantu memastikan performa aplikasi tetap stabil setelah deployment.
 
-Denim: Photo by Denis Zagorodniuc from Pexels<br />
-https://www.pexels.com/@imdennyz<br />
+---
 
-Jacket: Photo by Simon Robben from Pexels<br />
-https://www.pexels.com/@simon-robben-55958<br />
+## 🔐 Security Implementation
 
-Yellow T-shirt:Photo by RAUL REYNOSO from Pexels<br />
-https://www.pexels.com/@raulkingr<br />
+Beberapa konfigurasi keamanan yang diterapkan:
 
-Yellow Dress: Photo by Godisable Jacob from Pexels<br />
-https://www.pexels.com/@godisable-jacob-226636<br />
+- SSH authentication menggunakan key (tanpa password login)
+- Firewall aktif menggunakan UFW
+- Environment variable tidak di-hardcode dalam source code
+- Reverse proxy untuk membatasi direct access ke aplikasi
 
+---
 
+## 🚀 Scaling Strategy (Manual)
 
-### Famous Quotes Used:
-"Fashion is the armour to survive the reality of everyday life."<br />
--- bill cunningham
+Aplikasi dapat di-scale secara manual dengan:
 
-"One is never over-dressed or under-dressed with a Little Black Dress." —Karl Lagerfeld<br />
+- Menjalankan multiple instance menggunakan PM2 cluster mode
+- Upgrade spesifikasi VPS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
+## 📚 How to Run Locally
+
+```
+npm install
+npm run build
+npm run start
+```
+
+---
+
+## 🙏 Credits
+
+Original UI Template:
+https://github.com/codebucks27/wibe-studio
+
+Template digunakan sebagai dasar implementasi deployment cloud dan praktik DevOps pada project ini.
