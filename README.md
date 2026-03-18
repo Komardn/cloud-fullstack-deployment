@@ -1,103 +1,112 @@
-# 🚀 Cloud Full-Stack Deployment – Wibe Studio Portfolio
+# 🚀 Cloud Full-Stack Deployment – Portfolio Application
 
 ## 📌 Project Overview
 
-Project ini merupakan implementasi deployment aplikasi full-stack berbasis **NextJS** ke lingkungan cloud menggunakan **VPS Ubuntu**.
+Project ini merupakan implementasi deployment aplikasi portfolio berbasis **React (Create React App)** ke lingkungan cloud menggunakan **Virtual Private Server (Ubuntu)**.
 
-Fokus utama project ini adalah penerapan praktik **DevOps dan Cloud Engineering**, meliputi CI/CD automation, deployment server, monitoring performa, serta konfigurasi keamanan dasar.
+Fokus utama project adalah penerapan praktik **Cloud Engineering dan DevOps**, meliputi automated CI/CD deployment, server process management, serta persiapan monitoring dan scaling.
 
-Aplikasi yang digunakan merupakan UI portfolio template open-source yang telah dimodifikasi dan dideploy sebagai bagian dari capstone project.
+Aplikasi diambil dari template open-source dan dimodifikasi sebagai bagian dari capstone project cloud deployment.
 
 ---
 
 ## 🏗 System Architecture
 
-User → Internet → Nginx Reverse Proxy → NextJS Application (PM2) → VPS Server
+User → Internet → Static React App (serve) → PM2 Process Manager → VPS Ubuntu
 
 ---
 
 ## ⚙️ CI/CD Pipeline
 
-Pipeline otomatis dibuat menggunakan **GitHub Actions** dengan tahapan:
+Pipeline otomatis dibuat menggunakan **GitHub Actions**.
 
-1. Checkout source code
-2. Install dependency
-3. Build aplikasi NextJS
-4. Deploy otomatis ke VPS melalui SSH
-5. Restart aplikasi menggunakan PM2
+Workflow pipeline:
 
-Pipeline akan berjalan setiap kali terjadi push ke branch **main**.
+1. Trigger saat push ke branch `main`
+2. GitHub Actions melakukan SSH ke VPS
+3. Pull source code terbaru
+4. Install dependency
+5. Build aplikasi
+6. Restart aplikasi menggunakan PM2
+
+Pipeline ini memungkinkan **auto-deployment tanpa perlu login manual ke server.**
 
 ---
 
 ## ☁️ Cloud Deployment
 
-Aplikasi dideploy ke **Virtual Private Server (Ubuntu)** dengan spesifikasi:
+Aplikasi dideploy ke **Virtual Private Server** dengan spesifikasi:
 
-- Hostname: **finalprojectkomar.com**
-- IP Address: **141.11.175.86**
-- 1 vCPU
-- 1 GB RAM
-- 25 GB Storage
+- OS: Ubuntu 20.04
+- CPU: 1 vCore
+- RAM: 1 GB
+- Storage: 25 GB
 
-Aplikasi dapat diakses melalui:
+Application URL:
 
-👉 http://141.11.175.86
+👉 http://141.11.25.86:3000
 
-Deployment menggunakan:
+Deployment stack:
 
 - NodeJS runtime
-- PM2 process manager
-- Nginx reverse proxy
+- Static build serving menggunakan `serve`
+- PM2 sebagai process manager
 
 ---
 
-## 📈 Monitoring
+## 🔄 Process Management
 
-Monitoring server dilakukan menggunakan **Netdata dashboard** untuk memantau:
+Aplikasi dijalankan menggunakan PM2:
 
-- CPU Usage
-- Memory Usage
-- Network Traffic
-- Disk I/O
-
-Monitoring membantu memastikan performa aplikasi tetap stabil setelah deployment.
+- menjaga aplikasi tetap berjalan
+- memungkinkan restart otomatis
+- mendukung scaling horizontal (cluster mode)
 
 ---
 
-## 🔐 Security Implementation
+## 🚀 Scaling Strategy
 
-Beberapa konfigurasi keamanan yang diterapkan:
+Scaling manual dapat dilakukan dengan:
 
-- SSH authentication menggunakan key (tanpa password login)
-- Firewall aktif menggunakan UFW
-- Environment variable tidak di-hardcode dalam source code
-- Reverse proxy untuk membatasi direct access ke aplikasi
+- menjalankan PM2 cluster mode
+- upgrade resource VPS
 
 ---
 
-## 🚀 Scaling Strategy (Manual)
+## 🔐 Security (Planned Improvement)
 
-Aplikasi dapat di-scale secara manual dengan:
+Beberapa improvement yang dapat diterapkan:
 
-- Menjalankan multiple instance menggunakan PM2 cluster mode
-- Upgrade spesifikasi VPS
+- firewall UFW
+- SSH key authentication
+- reverse proxy (Nginx)
+- HTTPS termination
 
 ---
 
-## 📚 How to Run Locally
+## 📈 Monitoring (Planned)
 
-```
+Monitoring server resource dapat dilakukan menggunakan:
+
+- Netdata dashboard
+- atau Grafana stack
+
+---
+
+## 📚 Run Locally
+
+```bash
 npm install
 npm run build
-npm run start
+npx serve -s build
 ```
 
 ---
 
 ## 🙏 Credits
 
-Original UI Template:
+Original template:
+
 https://github.com/codebucks27/wibe-studio
 
-Template digunakan sebagai dasar implementasi deployment cloud dan praktik DevOps pada project ini.
+Digunakan sebagai basis implementasi cloud deployment dan automation pipeline.
