@@ -1,112 +1,131 @@
-# 🚀 Cloud Full-Stack Deployment – Portfolio Application
+# 🚀 Cloud Full-Stack Deployment with CI/CD, Security & Monitoring
 
 ## 📌 Project Overview
 
-Project ini merupakan implementasi deployment aplikasi portfolio berbasis **React (Create React App)** ke lingkungan cloud menggunakan **Virtual Private Server (Ubuntu)**.
+This project demonstrates an end-to-end deployment of a full-stack web application into a cloud VPS environment.
 
-Fokus utama project adalah penerapan praktik **Cloud Engineering dan DevOps**, meliputi automated CI/CD deployment, server process management, serta persiapan monitoring dan scaling.
+The implementation focuses on real DevOps workflow practices including:
 
-Aplikasi diambil dari template open-source dan dimodifikasi sebagai bagian dari capstone project cloud deployment.
-
----
-
-## 🏗 System Architecture
-
-User → Internet → Static React App (serve) → PM2 Process Manager → VPS Ubuntu
-
----
-
-## ⚙️ CI/CD Pipeline
-
-Pipeline otomatis dibuat menggunakan **GitHub Actions**.
-
-Workflow pipeline:
-
-1. Trigger saat push ke branch `main`
-2. GitHub Actions melakukan SSH ke VPS
-3. Pull source code terbaru
-4. Install dependency
-5. Build aplikasi
-6. Restart aplikasi menggunakan PM2
-
-Pipeline ini memungkinkan **auto-deployment tanpa perlu login manual ke server.**
+- Automated CI/CD pipeline
+- Cloud VPS deployment
+- Application runtime management
+- Firewall security configuration
+- Real-time infrastructure monitoring
+- Server resource observability
 
 ---
 
-## ☁️ Cloud Deployment
+## 🌐 Live Application
 
-Aplikasi dideploy ke **Virtual Private Server** dengan spesifikasi:
+Application can be accessed via:
 
-- OS: Ubuntu 20.04
-- CPU: 1 vCore
-- RAM: 1 GB
-- Storage: 25 GB
-
-Application URL:
-
-👉 http://141.11.25.86:3000
-
-Deployment stack:
-
-- NodeJS runtime
-- Static build serving menggunakan `serve`
-- PM2 sebagai process manager
+http://141.11.25.86:3000
 
 ---
 
-## 🔄 Process Management
+## 🏗️ Deployment Architecture
 
-Aplikasi dijalankan menggunakan PM2:
-
-- menjaga aplikasi tetap berjalan
-- memungkinkan restart otomatis
-- mendukung scaling horizontal (cluster mode)
+Developer → GitHub → CI/CD Pipeline → Cloud VPS → PM2 Runtime → Monitoring (Netdata)
 
 ---
 
-## 🚀 Scaling Strategy
+## ⚙️ Technology Stack
 
-Scaling manual dapat dilakukan dengan:
-
-- menjalankan PM2 cluster mode
-- upgrade resource VPS
-
----
-
-## 🔐 Security (Planned Improvement)
-
-Beberapa improvement yang dapat diterapkan:
-
-- firewall UFW
-- SSH key authentication
-- reverse proxy (Nginx)
-- HTTPS termination
+- Linux Cloud VPS
+- GitHub
+- GitHub Actions
+- Node.js Application
+- PM2
+- UFW
+- Netdata
 
 ---
 
-## 📈 Monitoring (Planned)
+## 🔄 CI/CD Pipeline
 
-Monitoring server resource dapat dilakukan menggunakan:
+Automated deployment triggered on repository update.
 
-- Netdata dashboard
-- atau Grafana stack
+### Workflow Runs
+
+![CI/CD Workflow Runs](screenshots/cicd-workflow-runs.png)
+
+### Deployment Job Detail
+
+![CI/CD Deploy Job Detail](screenshots/cicd-deploy-job-detail.png)
+
+### Deployment Logs
+
+![CI/CD Deployment Logs](screenshots/cicd-deploy-logs.png)
 
 ---
 
-## 📚 Run Locally
+## 🌐 Application Deployment
 
-```bash
-npm install
-npm run build
-npx serve -s build
-```
+Application successfully deployed and running on VPS.
+
+### Running Application
+
+![Application Running](screenshots/app-running-public.png)
+
+### PM2 Process Status
+
+![PM2 Process Status](screenshots/pm2-process-status.png)
 
 ---
 
-## 🙏 Credits
+## 🔐 Security Configuration
 
-Original template:
+Firewall rules configured using UFW to allow only required ports.
 
+![Firewall Status](screenshots/ufw-firewall-status.png)
+
+---
+
+## 📊 Infrastructure Monitoring
+
+Real-time monitoring implemented using Netdata dashboard.
+
+![Netdata Monitoring](screenshots/netdata-monitoring-dashboard.png)
+
+---
+
+## 🖥️ Server Resource Observability
+
+### CPU & Process Monitoring (htop)
+
+![HTOP Resource Usage](screenshots/htop-resource-usage.png)
+
+### Memory Usage Verification
+
+![Memory Usage](screenshots/memory-usage-free.png)
+
+---
+
+## 📈 Scaling Consideration
+
+Based on monitoring insights, vertical scaling can be considered when resource utilization reaches sustained high levels.
+
+---
+
+## 🙏 Acknowledgement
+
+This deployment project uses the **Wibe Studio** full-stack application as a deployment case study.
+
+Original application repository:  
 https://github.com/codebucks27/wibe-studio
 
-Digunakan sebagai basis implementasi cloud deployment dan automation pipeline.
+All application development credit belongs to the original author and contributors.
+
+This project focuses on cloud deployment implementation and DevOps workflow simulation.
+
+---
+
+## ✅ Project Outcome
+
+- Automated CI/CD deployment implemented
+- Public cloud VPS deployment completed
+- Firewall security configured
+- Real-time monitoring enabled
+- Server resource visibility implemented
+
+This project demonstrates foundational Cloud Engineering and DevOps practices.
