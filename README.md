@@ -83,7 +83,20 @@ Firewall rules configured using UFW to allow only required ports.
 
 ## 📊 Infrastructure Monitoring
 
-Real-time monitoring implemented using Netdata dashboard.
+Real-time infrastructure monitoring is implemented using **Netdata**, providing comprehensive visibility into server performance and system health.
+
+The monitoring dashboard provides insights into multiple infrastructure metrics including:
+
+- CPU utilization and system load
+- Memory usage and swap activity
+- Disk I/O and filesystem performance
+- Network traffic and bandwidth usage
+- Running processes and service activity
+- System uptime and resource trends
+
+The monitoring dashboard can be accessed via:
+
+http://141.11.25.86:19999
 
 ![Netdata Monitoring](screenshots/netdata-monitoring-dashboard.png)
 
