@@ -1,0 +1,24 @@
+name: Auto Deploy VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 141.11.25.86
+          username: root
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd /root/cloud-fullstack-deployment
+            git pull
+            npm install
+            npm run build
+            pm2 restart portfolio-app
