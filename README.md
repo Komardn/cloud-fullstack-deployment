@@ -45,6 +45,12 @@ Developer → GitHub → CI/CD Pipeline → Cloud VPS → PM2 Runtime → Monito
 
 Automated deployment triggered on repository update.
 
+### 🔗 CI/CD Pipeline Execution
+
+Successful deployment pipeline run can be viewed here:
+
+https://github.com/Komardn/cloud-fullstack-deployment/actions/runs/23228427866
+
 ### Workflow Runs
 
 ![CI/CD Workflow Runs](screenshots/cicd-workflow-runs.png)
